@@ -1,7 +1,6 @@
 package services;
 
 import dao.UserDao;
-import models.Auto;
 import models.User;
 
 import java.util.List;
@@ -30,13 +29,10 @@ public class UserService {
     public void updateUser(User user) {
         userDao.update(user);
     }
-    public List<User> dinfAllUsers() {
+    public List<User> findAllUsers() {
         return userDao.findAll();
     }
 
-    public Auto findAutoById(int id) {
-        return userDao.findAutoById(id);
-    }
 
 
 }

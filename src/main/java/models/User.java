@@ -1,8 +1,6 @@
 package models;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -17,15 +15,12 @@ public class User {
 
     private int age;
 
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Auto> autos;
 
     public User() {}
 
     public User(String name, int age) {
         this.name = name;
         this.age = age;
-        autos = new ArrayList<Auto>();
     }
 
     public int getId() {
@@ -48,21 +43,7 @@ public class User {
         this.age = age;
     }
 
-    public List<Auto> getAutos() {
-        return autos;
-    }
 
-    public void setAutos(List<Auto> autos) {
-        this.autos = autos;
-    }
-
-    public void addAuto(Auto auto) {
-        auto.setUser(this);
-        autos.add(auto);
-    }
-    public void removeAuto(Auto auto) {
-        autos.remove(auto);
-    }
 
     @Override
     public String toString() {

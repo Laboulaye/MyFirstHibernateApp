@@ -1,9 +1,7 @@
 package dao;
 
-import models.Auto;
 import models.User;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import utils.HibernateSessionFactoryUtil;
 
@@ -52,10 +50,6 @@ public class UserDao {
         session.close();
     }
 
-    public Auto findAutoById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory()
-                .openSession().get(Auto.class, id);
-    }
 
     public List<User> findAll() {
         List<User> users = (List<User>) HibernateSessionFactoryUtil.getSessionFactory()
